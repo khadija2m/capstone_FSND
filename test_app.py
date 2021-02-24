@@ -4,7 +4,7 @@ import json
 from flask_sqlalchemy import SQLAlchemy
 
 from app import create_app
-from models import setup_db, Actors, Movies, Casting, create_db
+from models import setup_db, Actors, Movies, Casting, db
 
 unauthorized = {
     'code': 'unauthorized',
@@ -13,7 +13,6 @@ unauthorized = {
 
 test_token = os.environ['producer_token']
 low_token = os.environ['assistant_token']
-db_path = os.environ['DATABASE_URL']
 
 
 class AgencyTestCase(unittest.TestCase):
@@ -22,8 +21,9 @@ class AgencyTestCase(unittest.TestCase):
         self.app = create_app()
         self.client = self.app.test_client
         self.database_name = "agencytest"
-        self.database_path = db_path
+        self.database_path = os.environ['DATABASE_URL']
         setup_db(self.app, self.database_path)
+
 
     def tearDown(self):
         pass
