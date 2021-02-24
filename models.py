@@ -4,14 +4,13 @@ from flask_sqlalchemy import SQLAlchemy
 import json
 
 # database config:
-
+# ---------------------
 database_name = "agencydb"
-database_path = "postgres://qrilylmeeszxvk:bf709eb5cdd58b8f6ad8d1ee4a7f5ae2c2b9287450b6a160ca0679598804677f@ec2-54-211-77-238.compute-1.amazonaws.com:5432/dfquadfsgqpndg"
+database_path = os.environ['DATABASE_URL']
 
 # config
 # ---------------------
 db = SQLAlchemy()
-# migrate = Migrate(app, db)
 
 
 # DB SETUP

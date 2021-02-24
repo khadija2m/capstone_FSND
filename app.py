@@ -14,15 +14,19 @@ def create_app(test_config=None):
     setup_db(app)
     CORS(app)
 
-
     # Access_Control_Allow
     # -----------------------------------
     @app.after_request
     def after_request(response):
-        response.headers.add('Access_Control_Allow_Headers', 'Content_Type, Authorization')
-        response.headers.add('Access_Control_Allow_Methods', 'GET, POST, PATCH, DELETE, OPTIONS')
+        response.headers.add(
+            'Access_Control_Allow_Headers',
+            'Content_Type, Authorization'
+        )
+        response.headers.add(
+            'Access_Control_Allow_Methods',
+            'GET, POST, PATCH, DELETE, OPTIONS'
+        )
         return response
-
 
     @app.route('/')
     def index():
@@ -217,7 +221,6 @@ def create_app(test_config=None):
             "error": 405,
             "message": 'Method is not allowed'
         }), 405
-
 
     @app.errorhandler(500)
     def internal_server_error(error):
