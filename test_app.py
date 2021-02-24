@@ -21,9 +21,9 @@ class AgencyTestCase(unittest.TestCase):
         self.app = create_app()
         self.client = self.app.test_client
         self.database_name = "agencytest"
-        self.database_path = os.environ['DATABASE_URL']
+        self.database_path = "postgresql://postgres:123@{}/{}".format('localhost:5432', self.database_name)
         setup_db(self.app, self.database_path)
-
+        db.create_all()
 
     def tearDown(self):
         pass
