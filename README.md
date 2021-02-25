@@ -1,11 +1,21 @@
 # Capstone project - Casting Agency
-This is the last project for FULL STACK WEB DEVELOPMENT NANODEGREE. Casting Agency is a company that is responsible for creating movies and managing and assigning actors to those movies. This app handling creating a system to simplify and streamline the process.
+This is the last project for FULL STACK WEB DEVELOPMENT NANODEGREE.
 
-## Main Topics:
-- SQL and Data Modeling for web app.
+Casting Agency is a company that is responsible for creating movies and managing and assigning actors to those movies. This app handling creating a system to simplify and streamline the process.
+
+## Motivation:
+After completing lessons in FULL STACK WEB DEVELOPMENT, this project was the one that handle the main topics in the Nanodegree:
+- SQL, SQLAlchemy and Data Modeling for web app.
+- using FLASK.
 - API Development & Documentation.
-- Identity and Access Management using AUTH0.
+- Identity and Access Management using AUTH0 as a third party.
+- Role-Base Access Control (RBAC)
+- testeng the application using Unittest.
 - Deployment using Heroku.
+
+# Deployment
+This APP is deployed using Heroku. and it can bee seen and checked using the following link:
+https://kcastingagency.herokuapp.com/
 
 ### Dependencies
 
@@ -183,11 +193,17 @@ This endpoint will delete a movie got by actor ID
 ## Error handlers:
 
 400 - Bad reqest
+
 401 - token expired / invalid claims / invalid header
+
 403 - unauthorized
+
 404 - Resource not found
+
 422 - Unprocessable entity
+
 500 - Internal Server error
+
 406 - Could not create a resource
 
 ##### Sample Response for 404

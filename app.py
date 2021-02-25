@@ -45,7 +45,7 @@ def create_app(test_config=None):
                 'success': True,
                 'actors': [actor.format() for actor in actors]
             })
-        except:
+        except Exception:
             abort(404)
 
     @app.route('/actors/<int:actor_id>', methods=['DELETE'])
@@ -61,7 +61,7 @@ def create_app(test_config=None):
                 'success': True,
                 'message': str(actor_id) + ' deleted...'
             })
-        except:
+        except Exception:
             abort(422)
 
     @app.route('/actors', methods=['POST'])
@@ -82,7 +82,7 @@ def create_app(test_config=None):
                 'success': True,
                 'message': 'New record has been added !'
             })
-        except:
+        except Exception:
             abort(422)
 
     @app.route('/actors/<int:actor_id>', methods=['PATCH'])
@@ -123,7 +123,7 @@ def create_app(test_config=None):
                 'success': True,
                 'actors': [movie.format() for movie in movies]
             })
-        except:
+        except Exception:
             abort(404)
 
     @app.route('/movies/<int:movie_id>', methods=['DELETE'])
@@ -140,7 +140,7 @@ def create_app(test_config=None):
                 'success': True,
                 'message': str(movie_id) + ' deleted...'
             })
-        except:
+        except Exception:
             abort(422)
 
     @app.route('/movies', methods=['POST'])
@@ -160,7 +160,7 @@ def create_app(test_config=None):
                 'success': True,
                 'message': 'New record has been added !'
             })
-        except:
+        except Exception:
             abort(422)
 
     @app.route('/movies/<int:movie_id>', methods=['PATCH'])

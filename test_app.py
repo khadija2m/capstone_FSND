@@ -6,24 +6,22 @@ from flask_sqlalchemy import SQLAlchemy
 from app import create_app
 from models import setup_db, Actors, Movies, Casting, db
 
-unauthorized = {
-    'code': 'unauthorized',
-    'description': 'Permission not authorized.'
-}
 
 test_token = os.environ['producer_token']
 low_token = os.environ['assistant_token']
 
+unauthorized = {'code': 'unauthorized', 'description': 'Permission not authorized.'}
 
 class AgencyTestCase(unittest.TestCase):
 
     def setUp(self):
         self.app = create_app()
         self.client = self.app.test_client
-        self.database_name = "agencytest"
-        self.database_path = "postgresql://postgres:123@{}/{}".format('localhost:5432', self.database_name)
+        self.database_name = "agencydb"
+        db_path = os.environ['DATABASE_URL']
+        self.database_path = db_path
         setup_db(self.app, self.database_path)
-        db.create_all()
+#        db.create_all()
 
     def tearDown(self):
         pass
