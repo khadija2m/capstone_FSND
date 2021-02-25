@@ -10,7 +10,8 @@ from models import setup_db, Actors, Movies, Casting, db
 test_token = os.environ['producer_token']
 low_token = os.environ['assistant_token']
 
-unauthorized = {'code': 'unauthorized', 'description': 'Permission not authorized.'}
+unauthorized = {'code': 'unauthorized',
+                'description': 'Permission not authorized.'}
 
 class AgencyTestCase(unittest.TestCase):
 
@@ -18,7 +19,8 @@ class AgencyTestCase(unittest.TestCase):
         self.app = create_app()
         self.client = self.app.test_client
         self.database_name = "agencydb"
-        db_path = os.environ['DATABASE_URL']
+        db_path = "postgres://postgres:123@{}/{}".format('localhost:5432',
+                                                          self.database_name)
         self.database_path = db_path
         setup_db(self.app, self.database_path)
 #        db.create_all()
